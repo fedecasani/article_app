@@ -1,3 +1,5 @@
+import 'package:flutter_article_app/domain/entities/article.dart';
+import 'package:flutter_article_app/domain/repositories/article_repository.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
