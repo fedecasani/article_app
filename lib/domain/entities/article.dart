@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class Article extends Equatable {
   final int id;
   final String title;
@@ -7,4 +9,13 @@ class Article extends Equatable {
 
   @override
   List<Object> get props => [id, title, body];
+
+  // Factory constructor for creating an Article from JSON
+  factory Article.fromJson(Map<String, dynamic> json) {
+    return Article(
+      id: json['id'],
+      title: json['title'],
+      body: json['body'],
+    );
+  }
 }
