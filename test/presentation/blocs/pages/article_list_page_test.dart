@@ -19,7 +19,7 @@ void main() {
     return MaterialApp(
       home: BlocProvider<ArticleBloc>(
         create: (context) => mockArticleBloc,
-        child: ArticleListPage(),
+        child: const ArticleListPage(),
       ),
     );
   }
@@ -35,7 +35,7 @@ void main() {
 
   testWidgets('shows articles when loaded successfully',
       (WidgetTester tester) async {
-    when(mockArticleBloc.state).thenReturn(ArticleLoaded([
+    when(mockArticleBloc.state).thenReturn(const ArticleLoaded([
       Article(id: 1, title: 'Title 1', body: 'Body 1'),
       Article(id: 2, title: 'Title 2', body: 'Body 2')
     ]));
@@ -48,7 +48,7 @@ void main() {
 
   testWidgets('shows error message when loading fails',
       (WidgetTester tester) async {
-    when(mockArticleBloc.state).thenReturn(ArticleError('Error'));
+    when(mockArticleBloc.state).thenReturn(const ArticleError('Error'));
 
     await tester.pumpWidget(createWidgetUnderTest());
 

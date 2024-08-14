@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../domain/entities/article.dart';
-import '../widgets/custom_appbar.dart'; // Ajusta la ruta según sea necesario
+import '../widgets/custom_appbar.dart';
 
 class ArticleDetailPage extends StatelessWidget {
   final Article article;
 
-  ArticleDetailPage({required this.article});
+  const ArticleDetailPage({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ArticleDetailPage extends StatelessWidget {
       appBar: CustomAppBar(
         title: article.title,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
@@ -25,30 +25,29 @@ class ArticleDetailPage extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 200, // Ajusta el tamaño según sea necesario
+                  height: 200,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(
-                        'https://picsum.photos/800/600?random=${DateTime.now().millisecondsSinceEpoch}', // URL de una imagen aleatoria
+                        'https://picsum.photos/800/600?random=${DateTime.now().millisecondsSinceEpoch}',
                       ),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                SizedBox(height: 16.0), // Espacio entre la imagen y el texto
+                const SizedBox(height: 16.0),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Text(
                       article.body,
-                      style: TextStyle(
-                          fontSize: 16), // Ajusta el estilo según sea necesario
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                 ),
@@ -60,18 +59,16 @@ class ArticleDetailPage extends StatelessWidget {
             right: 16.0,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.blue[900], // Fondo azul
-                shape: BoxShape.circle, // Forma circular
+                color: Colors.blue[900],
+                shape: BoxShape.circle,
               ),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.edit,
-                  color: Colors.white, // Ícono blanco
+                  color: Colors.white,
                   size: 30,
                 ),
-                onPressed: () {
-                  // Acción para el icono de editar (actualmente no hace nada)
-                },
+                onPressed: () {},
               ),
             ),
           ),

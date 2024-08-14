@@ -5,10 +5,10 @@ import 'package:flutter_article_app/domain/entities/article.dart';
 
 void main() {
   testWidgets('shows article details correctly', (WidgetTester tester) async {
-    final article =
+    const article =
         Article(id: 1, title: 'Article Title', body: 'Article Body');
 
-    await tester.pumpWidget(MaterialApp(
+    await tester.pumpWidget(const MaterialApp(
       home: ArticleDetailPage(article: article),
     ));
 

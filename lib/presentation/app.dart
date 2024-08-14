@@ -6,10 +6,12 @@ import 'pages/article_list_page.dart';
 
 void main() {
   di.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
         create: (_) => di.sl<ArticleBloc>()..add(LoadArticles()),
-        child: ArticleListPage(),
+        child: const ArticleListPage(),
       ),
     );
   }

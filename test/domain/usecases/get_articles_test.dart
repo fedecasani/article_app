@@ -18,7 +18,7 @@ void main() {
   group('GetArticles', () {
     test('should return a list of articles when the repository returns data',
         () async {
-      final articles = [Article(id: 1, title: 'Title', body: 'Body')];
+      final articles = [const Article(id: 1, title: 'Title', body: 'Body')];
       when(mockArticleRepository.getArticles())
           .thenAnswer((_) async => articles);
 

@@ -11,6 +11,8 @@ import '../../core/theme_notifier.dart';
 import '../utils/themes.dart';
 
 class ArticleListPage extends StatelessWidget {
+  const ArticleListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
@@ -37,21 +39,20 @@ class ArticleListPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Carrusel de tarjetas
           FutureBuilder<List<Map<String, dynamic>>>(
             future: fetchProductData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
-                return Center(child: Text('Error al cargar productos'));
+                return const Center(child: Text('Error al cargar productos'));
               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return Center(child: Text('No hay productos disponibles'));
+                return const Center(
+                    child: Text('No hay productos disponibles'));
               } else {
                 final products = snapshot.data!;
-                return Container(
-                  height:
-                      250, // Asegúrate de que el contenedor tenga un tamaño fijo
+                return SizedBox(
+                  height: 250,
                   child: CarouselSlider(
                     options: CarouselOptions(
                       height: 250,
@@ -64,7 +65,7 @@ class ArticleListPage extends StatelessWidget {
                         builder: (BuildContext context) {
                           return Card(
                             elevation: 5,
-                            margin: EdgeInsets.all(8),
+                            margin: const EdgeInsets.all(8),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -116,7 +117,7 @@ class ArticleListPage extends StatelessWidget {
               }
             },
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Expanded(
             child: BlocBuilder<ArticleBloc, ArticleState>(
               builder: (context, state) {
@@ -124,7 +125,7 @@ class ArticleListPage extends StatelessWidget {
                     Theme.of(context).brightness == Brightness.dark;
 
                 if (state is ArticleLoading) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (state is ArticleLoaded) {
                   return ListView.separated(
                     itemCount: state.articles.length,
@@ -188,7 +189,6 @@ class ArticleListPage extends StatelessWidget {
     );
   }
 
-  // Método para obtener datos de productos desde una API
   Future<List<Map<String, dynamic>>> fetchProductData() async {
     final response =
         await http.get(Uri.parse('https://fakestoreapi.com/products'));

@@ -25,13 +25,13 @@ void main() {
       'emits [ArticleLoading, ArticleLoaded] when articles are fetched successfully',
       build: () {
         when(mockGetArticles()).thenAnswer(
-            (_) async => [Article(id: 1, title: 'Title', body: 'Body')]);
+            (_) async => [const Article(id: 1, title: 'Title', body: 'Body')]);
         return articleBloc;
       },
       act: (bloc) => bloc.add(LoadArticles()),
       expect: () => [
         ArticleLoading(),
-        ArticleLoaded([Article(id: 1, title: 'Title', body: 'Body')])
+        const ArticleLoaded([Article(id: 1, title: 'Title', body: 'Body')])
       ],
     );
 
@@ -42,7 +42,8 @@ void main() {
         return articleBloc;
       },
       act: (bloc) => bloc.add(LoadArticles()),
-      expect: () => [ArticleLoading(), ArticleError("Error loading articles")],
+      expect: () =>
+          [ArticleLoading(), const ArticleError("Error loading articles")],
     );
   });
 }

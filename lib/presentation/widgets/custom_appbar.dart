@@ -5,7 +5,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final Widget? trailing;
 
-  CustomAppBar({
+  const CustomAppBar({
+    super.key,
     required this.title,
     this.leading,
     this.trailing,
@@ -18,14 +19,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       leading: leading != null
           ? Padding(
-              padding: const EdgeInsets.only(left: 8.0), // Ajusta el espacio
+              padding: const EdgeInsets.only(left: 8.0),
               child: leading!,
             )
           : null,
       actions: [
         if (trailing != null)
           Padding(
-            padding: const EdgeInsets.only(right: 8.0), // Ajusta el espacio
+            padding: const EdgeInsets.only(right: 8.0),
             child: trailing!,
           ),
       ],
@@ -36,17 +37,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               Align(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding: EdgeInsets.only(
-                      top:
-                          25.0), // Ajusta este valor para mover el título más abajo
+                  padding: const EdgeInsets.only(top: 25.0),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                      maxWidth: constraints.maxWidth *
-                          0.6, // Ajusta según sea necesario
+                      maxWidth: constraints.maxWidth * 0.6,
                     ),
                     child: Text(
                       title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                         fontSize: 22,
@@ -65,5 +63,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -19,7 +19,6 @@ void main() {
   group('ArticleRepositoryImpl', () {
     test('returns a list of articles when the http call completes successfully',
         () async {
-      // Simula una respuesta exitosa
       when(mockClient
               .get(Uri.parse('https://jsonplaceholder.typicode.com/posts')))
           .thenAnswer((_) async => http.Response(
@@ -36,7 +35,6 @@ void main() {
 
     test('throws an exception when the http call completes with an error',
         () async {
-      // Simula una respuesta con error
       when(mockClient
               .get(Uri.parse('https://jsonplaceholder.typicode.com/posts')))
           .thenAnswer((_) async => http.Response('Not Found', 404));
