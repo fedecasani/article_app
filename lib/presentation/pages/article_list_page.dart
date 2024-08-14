@@ -145,7 +145,7 @@ class ArticleListPage extends StatelessWidget {
                           ),
                           trailing: Icon(
                             Icons.arrow_forward_ios,
-                            color: Colors.blue[800],
+                            color: Colors.blue[900],
                           ),
                           onTap: () {
                             Navigator.push(

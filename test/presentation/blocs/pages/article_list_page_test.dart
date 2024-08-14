@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_article_app/presentation/pages/article_list_page.dart';
 import 'package:flutter_article_app/presentation/blocs/article_bloc.dart';
 import 'package:flutter_article_app/domain/entities/article.dart';

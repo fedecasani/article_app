@@ -62,7 +62,7 @@ class ArticleDetailPage extends StatelessWidget {
             right: 16.0,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.blue[800], // Fondo azul
+                color: Colors.blue[900], // Fondo azul
                 shape: BoxShape.circle, // Forma circular
               ),
               child: IconButton(
