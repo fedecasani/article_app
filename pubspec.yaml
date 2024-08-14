@@ -16,13 +16,13 @@ dependencies:
   equatable: ^2.0.3
   cupertino_icons: ^1.0.8
   mockito: ^5.4.4
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   bloc_test: ^9.0.0
   flutter_lints: ^4.0.0
-  mockito: ^5.4.4
 
 flutter:
   uses-material-design: true
