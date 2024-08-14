@@ -42,8 +42,7 @@ void main() {
         return articleBloc;
       },
       act: (bloc) => bloc.add(LoadArticles()),
-      expect: () =>
-          [ArticleLoading(), ArticleError("Error al cargar artículos")],
+      expect: () => [ArticleLoading(), ArticleError("Error loading articles")],
     );
   });
 }

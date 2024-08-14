@@ -29,7 +29,6 @@ class ArticleDetailPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Imagen aleatoria del artículo
                 Container(
                   height: 200, // Ajusta el tamaño según sea necesario
                   width: double.infinity,
@@ -44,7 +43,6 @@ class ArticleDetailPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16.0), // Espacio entre la imagen y el texto
-                // Descripción del artículo
                 Expanded(
                   child: SingleChildScrollView(
                     child: Text(

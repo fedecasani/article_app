@@ -16,7 +16,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
         final articles = await getArticles();
         emit(ArticleLoaded(articles));
       } catch (_) {
-        emit(ArticleError("Error al cargar artículos"));
+        emit(ArticleError("Error loading articles"));
       }
     });
   }

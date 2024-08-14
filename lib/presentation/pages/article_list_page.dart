@@ -17,7 +17,7 @@ class ArticleListPage extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Artículos',
+        title: 'Articles',
         trailing: IconButton(
           icon: Icon(
             themeNotifier.getTheme().brightness == Brightness.dark
@@ -116,7 +116,6 @@ class ArticleListPage extends StatelessWidget {
               }
             },
           ),
-          // Espacio entre el carrusel y la lista de artículos
           SizedBox(height: 16),
           Expanded(
             child: BlocBuilder<ArticleBloc, ArticleState>(
